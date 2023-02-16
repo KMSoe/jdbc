@@ -12,7 +12,7 @@ public class Database {
     public void createConnection()
     {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", this.dbUser, this.dbPassword);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/portfolio", this.dbUser, this.dbPassword);
         } catch (SQLException e) {
             System.out.println("Can't connect to the database");
             System.exit(1);
@@ -40,7 +40,7 @@ public class Database {
         System.out.println("Current City");
         String curCity = sc.nextLine();
 
-        String sql="insert into students (name,email,mobile,current_city) values ('" + name + "','" + email + "','" + phone + "','" + curCity + "')";
+        String sql = "insert into students (name,email,mobile,current_city) values ('" + name + "','" + email + "','" + phone + "','" + curCity + "')";
         Statement stmt = conn.createStatement();
 
         stmt.executeUpdate(sql);
