@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Database {
-    private String url =  "jdbc:mysql://localhost:3306/jdbc";
+    private String url =  "jdbc:mysql://localhost:3306/portfolio";
     private String user = "root";
     private String password = "1111";
     private Connection conn;
@@ -12,7 +12,7 @@ public class Database {
     public void createConnection()
     {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", this.user, this.password);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/portfolio", this.user, this.password);
         } catch (SQLException e) {
             System.out.println("Can't connect to the database");
         }
@@ -35,7 +35,7 @@ public class Database {
             int id = result.getInt("id");
             String name = result.getString("name");
             String email = result.getString("email");
-            String phone = result.getString("phone");
+            String phone = result.getString("mobile");
             String currentCity = result.getString("current_city");
             Student student = new Student(id, name, email, phone, currentCity);
 
@@ -55,7 +55,7 @@ public class Database {
         result.next();
         String name = result.getString("name");
         String email = result.getString("email");
-        String phone = result.getString("phone");
+        String phone = result.getString("mobile");
         String currentCity = result.getString("current_city");
         Student student = new Student(id, name, email, phone, currentCity);
 
